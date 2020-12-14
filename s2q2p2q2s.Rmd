@@ -135,4 +135,6 @@ $"https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_3aBcJuzTHwx8abC?id="+exp
 
 Get the __Qualtrics Redirect to a URL__ from the __Study Information__ page on SONA and put it [where?]
 
-The end
+# Testing it all
+
+If the whole loop has been set up then you can use the Sample Link with Embedded id code button on the Study Information page on SONA. This means you can test it all before the slots go on the market for sona credit.
