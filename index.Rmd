@@ -140,7 +140,7 @@ $"
 at the beginning, and 
 
 ```{r, class.source='klippy', eval=FALSE}
-?id="+ expInfo['participant']
+?id="+expInfo['participant']
 ```
 
 at the end. 
@@ -157,11 +157,19 @@ Copy the URL in the field called __Qualtrics Redirect to a URL__ from the __Stud
 
 ![](sona-redirect-to-a-url.png)
 
-..., find the field __Redirect to a full URL__ in __Survery Termination__ in Qualtrics, ...
+* Remember to add
+
+```{r, class.source='klippy', eval=FALSE}
+?id=%SURVEY_CODE%
+```
+
+to the end of the __Qualtrics Redirect to a URL__ if you want SONA to automatically award credit, then, ...
+
+..., find the field __Redirect to a full URL__ in __Survey Termination__ in Qualtrics, ...
 
 ![](survey-termination-qualtrics-to-sona.png)
 
-..., take the URL that you copied from SONA and paste it in the __Redirect to a full URL__ field. Now when qualtrics gets to the end, it looks at __Survey Termiation__ to see what you want it to do, and sees that you want it to return to Sona, where Sona is ready and waiting to receive __id__ and its value, which are coded into the URL.
+..., take the URL that you copied from SONA and paste it in the __Redirect to a full URL__ field. Now when qualtrics gets to the end, it looks at __Survey Termiation__ to see what you want it to do, and sees that you want it to return to Sona, where Sona is ready and waiting to receive __id__ and its value, which are coded into the URL. If you remembered to add ?id=%SURVEY_CODE% then SONA will award credit - if not, then you will have to manually award credit [untested]
 
 # Testing it all
 
