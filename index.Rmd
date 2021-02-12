@@ -173,4 +173,10 @@ to the end of the __Qualtrics Redirect to a URL__ if you want SONA to automatica
 
 # Testing it all
 
-If the whole loop has been set up then you can use the Sample Link with Embedded id code button on the Study Information page on SONA. This means you can test it all before the slots go on the market for sona credit.
+If the whole loop has been set up then you can use the __Sample Link with Embedded ID Code__ button on the Study Information page on SONA. This means you can test it all before the slots go on the market for sona credit.
+
+![](integration_test1.jpg)
+
+When you are redirected to the Sona site, if you see the message: 'No credit given, because you are not a participant, and therefore cannot sign up for this study' __then it worked!__ That indicates the system received a code indicating who you are, and it realizes you are not a participant and can’t sign up for the study.
+
+![](integration_test2.jpg)
