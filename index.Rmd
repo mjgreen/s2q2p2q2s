@@ -8,12 +8,12 @@ output:
     toc: true
 ---
 
-Suggestions for improving this document are welcome, and will help future users (previous users made suggestions that might have have helped you). You can reach me at mgreen@bournemouth.ac.uk.
+<!-- Suggestions for improving this document are welcome, and will help future users (previous users made suggestions that might have have helped you). You can reach me at mgreen@bournemouth.ac.uk. -->
 
-_matt's todo list_
+<!-- _matt's todo list_ -->
 
-* [x] _add more screenshots to the later stages_
-* [x] _resolve the [where?] placeholder text in the qualtrics to sona section_
+<!-- * [x] _add more screenshots to the later stages_ -->
+<!-- * [x] _resolve the [where?] placeholder text in the qualtrics to sona section_ -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=TRUE)
@@ -180,3 +180,36 @@ If the whole loop has been set up then you can use the __Sample Link with Embedd
 When you are redirected to the Sona site, if you see the message: 'No credit given, because you are not a participant, and therefore cannot sign up for this study' __then it worked!__ That indicates the system received a code indicating who you are, and it realizes you are not a participant and can’t sign up for the study.
 
 ![](integration_test2.jpg)
+
+# Example links from a working chain
+
+SONA to qualtrics1 
+
+```{r, class.source='klippy', eval=FALSE}
+https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_6Wor2HlNqfJ8Lzw?id=%SURVEY_CODE% 
+```
+
+qualtrics1 to pavlovia 
+
+```{r, class.source='klippy', eval=FALSE}
+https://pavlovia.org/run/mgreen/testchain?participant=${e://Field/id}
+```
+
+pavlovia to qualtrics 2 
+
+```{r, class.source='klippy', eval=FALSE}
+$"https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_2i6zAY4iNiykbhY?id="+expInfo['participant'] 
+```
+
+qualtrics 2 to sona 
+
+```{r, class.source='klippy', eval=FALSE}
+psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
+```
+
+
+ 
+
+ 
+
+ 
