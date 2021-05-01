@@ -1,7 +1,8 @@
 ---
 title: "Pavlovia, SONA, and Qualtrics integration"
 author: "Matt Green"
-date: "last update `r Sys.Date()`"
+#date: "last update `r Sys.Date()`"
+date: "last updated: `r format(Sys.time(), '%A %d %B %Y at %X')`"
 abstract: "This document explains how to link between psychopy experiments on pavlovia, and other systems like sona, and qualtrics, while preserving the same participant number, such that responses on all the systems can be identified later as having come from the same participant, without resorting to using personal information that would reveal the participant's identity (sona is the only system in the loop that knows how to map the anonymous information to the identity of the person)."
 output: 
   html_document:
