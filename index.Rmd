@@ -241,6 +241,9 @@ So, in psychopy, the __completed url__ field should look like this:
 $"https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_3aBcJuzTHwx8abC?id="+expInfo['participant']
 ```
 
+The next screenshot shows where you need to put that value. __It must be in the graphical user interface shown here__: editing the .psyexp file using a text editor will fail (because doing it that way skips the step where the psychopy app compiles the XML in the .psyexp file into the javascript that will eventually run on the participant's computer).
+
+![](psychopy-completed-url-field.png)
 
 # Testing it all
 
