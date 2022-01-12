@@ -195,6 +195,8 @@ You can either go straight back to sona, or go back to qualtrics
 
 ## pavlovia to sona
 
+This section applies if you are going from pavlovia to sona and if you went from sona to qualtrics. If you went from sona to psychopy directly then you are already set and you can ignore this section.
+
 *	Redirect from pavlovia: Take the __Qualtrics Redirect to a URL__ from the __Study Information__ page on SONA and edit it by putting
 ```{js, class.source='klippy', eval=FALSE}
 $"
