@@ -39,7 +39,7 @@ Here is an overview of the process.
 
 # Setting up SONA: where to find the 'Study URL'
 
-* SONA has changed the way they implement the __Qualtrics anonymous link__. They have put new (more recent than about Feb 2021) instructions at https://www.SONA-systems.com/help/Qualtrics.aspx but here is a digest of that information.
+* SONA has changed the way they implement the __Qualtrics anonymous link__. They have put new (more recent than about Feb 2021) instructions at https://www.sona-systems.com/help/qualtrics.aspx but here is a digest of that information.
 
 * Where we refer to 'Study URL', that is accessible from 'Change Study Information' option from the 'Study Menu' dropdown.
 
@@ -49,7 +49,7 @@ Here is an overview of the process.
 
 ## SONA to pavlovia
 
-* detailed info at https://www.SONA-systems.com/help/psychopy.aspx?p_experiment_id=2286&p_credit_token=6ff9d985812847a294dddb152589ff1c
+* detailed info at https://www.sona-systems.com/help/psychopy.aspx?p_experiment_id=2286&p_credit_token=6ff9d985812847a294dddb152589ff1c
 
 * On your SONA Systems site, change the Study URL so it includes 
 ```{r, class.source='klippy', eval=FALSE}
@@ -74,7 +74,7 @@ Now, the Study Information on your SONA Systems site now displays a __Completion
 The whole Completion URL (that is cut off in the website above) looks like this
 
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=1234&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code=XXXX
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=1234&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code=XXXX
 ```
 
 In PsychoPy, go to Experiment Settings and for the Completed URL field, copy the Completion URL from SONA but you will need to modify it slightly, by adding 
@@ -86,13 +86,13 @@ $"
 to the front of that URL, removing the `XXXX` and adding `"+expInfo['participant']` to the end of it. So if the Completion URL from SONA is:
 
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=1234&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code=XXXX
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=1234&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code=XXXX
 ```
 
 change it to:
 
 ```{r, class.source='klippy', eval=FALSE}
-$"https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=123&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code="+expInfo['participant']
+$"https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=123&credit_token=6ff9d985812847a294dddb152589ff1c&survey_code="+expInfo['participant']
 ```
 
 ## SONA to Qualtrics
@@ -106,13 +106,13 @@ $"https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_
 at the end of the Study URL. So if the Qualtrics URL (Anonymous Survey Link) is:
 
 ```{r, class.source='klippy', eval=FALSE}
-https://bournemouthpsych.eu.Qualtrics.com/jfe/form/SV_41MABCMAQJ1MDyt
+https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_41MABCMAQJ1MDyt
 ```
 
 then change it to:
 
 ```{r, class.source='klippy', eval=FALSE}
-https://bournemouthpsych.eu.Qualtrics.com/jfe/form/SV_41MABCMAQJ1MDyt?id=%SURVEY_CODE%
+https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_41MABCMAQJ1MDyt?id=%SURVEY_CODE%
 ```
 
 __(Note: "id" must be in lower-case)__
@@ -128,7 +128,7 @@ Now, the Study Information on your SONA Systems site displays a __Qualtrics Redi
 The full __Qualtrics Redirect to a URL__ is cut off in the website view: it looks like this:
 
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
 ```
 
 * The next thing is to tell Qualtrics that we are going to send it something that will be called id, and that it will have a different value every time we send it.
@@ -150,12 +150,12 @@ Copy the URL in the field called __Qualtrics Redirect to a URL__ from the __Stud
 It is cut off in that screenshot: paste it into a text editor and you'll see that it looks like this:
 
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
 ```
 
 Find the field __Redirect to a full URL__ in __Survey Termination__ in Qualtrics, ...
 
-![](survey-termination-Qualtrics-to-SONA.png)
+![](survey-termination-qualtrics-to-SONA.png)
 
 ..., take the URL that you copied from SONA and paste it in the __Redirect to a full URL__ field. Now when Qualtrics gets to the end, it looks at __Survey Termiation__ to see what you want it to do, and sees that you want it to return to SONA, where SONA is ready and waiting to receive __id__ and its value, which are coded into the URL. If you remembered to add `?id=%SURVEY_CODE%` in the __Study URL__ on SONA then SONA will award credit - if not, then you will have to manually award credit [untested]
 
@@ -216,11 +216,11 @@ to
 
 *	So, if your __Qualtrics Redirect to a URL__ URL starts off as
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=956&credit_token=c267aa1ac1024e27a8f8ac8ea13112a5&survey_code=${e://Field/id}
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=956&credit_token=c267aa1ac1024e27a8f8ac8ea13112a5&survey_code=${e://Field/id}
 ```
 then it would become the following, which is what should go in __completed url__ in PsychoPy.
 ```{r, class.source='klippy', eval=FALSE}
-$"https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=956&credit_token=c267aa1ac1024e27a8f8ac8ea13112a5&survey_code="+expInfo['participant']
+$"https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=956&credit_token=c267aa1ac1024e27a8f8ac8ea13112a5&survey_code="+expInfo['participant']
 ```
 
 ## pavlovia to Qualtrics
@@ -244,7 +244,7 @@ at the end.
 So, in PsychoPy, the __completed url__ field should look like this:
 
 ```{r, class.source='klippy', eval=FALSE}
-$"https://bournemouthpsych.eu.Qualtrics.com/jfe/form/SV_3aBcJuzTHwx8abC?id="+expInfo['participant']
+$"https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_3aBcJuzTHwx8abC?id="+expInfo['participant']
 ```
 
 The next screenshot shows where you need to put that value. __It must be in the graphical user interface shown here__: editing the .psyexp file using a text editor will fail (because doing it that way skips the step where the PsychoPy app compiles the XML in the .psyexp file into the javascript that will eventually run on the participant's computer).
@@ -268,7 +268,7 @@ When you are redirected to the SONA site, if you see the message: 'No credit giv
 SONA to Qualtrics1 
 
 ```{r, class.source='klippy', eval=FALSE}
-https://bournemouthpsych.eu.Qualtrics.com/jfe/form/SV_6Wor2HlNqfJ8Lzw?id=%SURVEY_CODE% 
+https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_6Wor2HlNqfJ8Lzw?id=%SURVEY_CODE% 
 ```
 
 Qualtrics1 to pavlovia 
@@ -280,13 +280,13 @@ https://pavlovia.org/run/mgreen/testchain?participant=${e://Field/id}
 pavlovia to Qualtrics 2 
 
 ```{r, class.source='klippy', eval=FALSE}
-$"https://bournemouthpsych.eu.Qualtrics.com/jfe/form/SV_2i6zAY4iNiykbhY?id="+expInfo['participant'] 
+$"https://bournemouthpsych.eu.qualtrics.com/jfe/form/SV_2i6zAY4iNiykbhY?id="+expInfo['participant'] 
 ```
 
 Qualtrics 2 to SONA 
 
 ```{r, class.source='klippy', eval=FALSE}
-https://psychologyresearchbu.SONA-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
+https://psychologyresearchbu.sona-systems.com/webstudy_credit.aspx?experiment_id=2292&credit_token=45afb612c6864e6da9236d2a16142bf0&survey_code=${e://Field/id}
 ```
 
 
