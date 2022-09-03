@@ -2,7 +2,9 @@
 title: |
   | Pavlovia, SONA, and Qualtrics integration
   |  
-  | <span style="color:red">This version is obsolete - please redirect to https://mjgreen.github.io/s2q2p2q2sqmd/ 
+  | <span style="color:red">This version is obsolete. Please use this link from now on: 
+  |  
+  | https://mjgreen.github.io/running-your-project-online/
   |  
   |  
 author: "Matt Green"
