@@ -1,10 +1,12 @@
 ---
 title: |
-  | Pavlovia, SONA, and Qualtrics integration.
-  | <span style="color:red">This version is obsolete since September 2022
-  | Please use https://mjgreen.github.io/s2q2p2q2sqmd/ instead
+  | Pavlovia, SONA, and Qualtrics integration
+  |  
+  | <span style="color:red">This version is obsolete - please redirect to https://mjgreen.github.io/s2q2p2q2sqmd/ 
+  |  
+  |  
 author: "Matt Green"
-date: "last updated: `r format(Sys.time(), '%A %d %B %Y at %X')`"
+#date: "date of obsolescenceobsolete since September 2022"
 abstract: "This document explains how to link between PsychoPy experiments on pavlovia, and other systems like SONA, and Qualtrics, while preserving the same participant number, such that responses on all the systems can be identified later as having come from the same participant, without resorting to using perSONAl information that would reveal the participant's identity (SONA is the only system in the loop that knows how to map the anonymous information to the identity of the person)."
 output: 
   html_document:
